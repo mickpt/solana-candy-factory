@@ -16,13 +16,13 @@ const Home = () => {
   const [isActive, setIsActive] = useState(false);
   const wallet = useWallet();
 
-  const { isSoldOut, mintStartDate, isMinting, onMint, onMintMultiple, nftsData } = useCandyMachine()
+  const { isSoldOut, mintStartDate, isMinting, onMint, nftsData } = useCandyMachine()
 
   return (
     <main className="p-5">
       <Toaster />
       <Head>
-        <title>Solana Candy Factory</title>
+        <title>Leopard Syndicate | Official Website</title>
         <meta name="description" content="Solana blockchain candy machine app boilerplate on top of Metaplex Candy Machine. NextJS, Tailwind, Anchor, SolanaLabs.React, dev/mainnet automation scripts." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -32,13 +32,13 @@ const Home = () => {
       <div className="flex flex-col justify-center items-center flex-1 space-y-3 mt-20">
         <img
           className="rounded-md shadow-lg"
-          src={`/candy.jpeg`}
+          src={`/logo_web.jpg`}
           height={200}
           width={200}
-          alt="Candy Image" />
+          alt="Leopard Syndicate Image" />
 
         <span className="text-gray-800 font-bold text-2xl cursor-default">
-          THIS IS THE BEST CANDY MACHINE EVER
+          Mint Your Leopard
         </span>
 
         {!wallet.connected && <span
@@ -78,25 +78,7 @@ const Home = () => {
             </RecaptchaButton>
           }
 
-          {wallet.connected &&
-            <RecaptchaButton
-              actionName="mint5"
-              disabled={isSoldOut || isMinting || !isActive}
-              onClick={() => onMintMultiple(5)}
-            >
-              {isSoldOut ? (
-                "SOLD OUT"
-              ) : isActive ?
-                <span>MINT 5 {isMinting && 'LOADING...'}</span> :
-                <Countdown
-                  date={mintStartDate}
-                  onMount={({ completed }) => completed && setIsActive(true)}
-                  onComplete={() => setIsActive(true)}
-                  renderer={renderCounter}
-                />
-              }
-            </RecaptchaButton>
-          }
+
         </div>
         <Footer />
       </div>

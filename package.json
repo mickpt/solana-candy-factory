@@ -51,6 +51,7 @@
     "react-share": "^4.4.0"
   },
   "devDependencies": {
+    "@types/node": "^16.11.1",
     "@types/react": "17.0.30",
     "autoprefixer": "^10.3.7",
     "envfile": "^6.17.0",
