@@ -33,8 +33,8 @@ const Home = () => {
         <img
           className="rounded-md shadow-lg"
           src={`/logo_web.jpg`}
-          height={200}
-          width={200}
+          height={500}
+          width={500}
           alt="Leopard Syndicate Image" />
 
         <span className="text-gray-800 font-bold text-2xl cursor-default">
@@ -47,13 +47,9 @@ const Home = () => {
         </span>}
 
         {wallet.connected &&
-          <p className="text-gray-800 font-bold text-lg cursor-default">Address: {shortenAddress(wallet.publicKey?.toBase58() || "")}</p>
-        }
-
-        {wallet.connected &&
           <>
             <p className="text-gray-800 font-bold text-lg cursor-default">Balance: {(balance || 0).toLocaleString()} SOL</p>
-            <p className="text-gray-800 font-bold text-lg cursor-default">Available/Minted/Total: {nftsData.itemsRemaining}/{nftsData.itemsRedeemed}/{nftsData.itemsAvailable}</p>
+            <p className="text-gray-800 font-bold text-lg cursor-default">{nftsData.itemsRedeemed}/{nftsData.itemsAvailable}</p>
           </>
         }
 

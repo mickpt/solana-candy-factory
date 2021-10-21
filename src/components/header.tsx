@@ -14,7 +14,6 @@ const Header: React.FC = () => {
     </div>
     <div className="flex space-x-5 items-center">
       <WalletMultiButton />
-      <WalletDisconnectButton />
     </div>
   </div>;
 }
